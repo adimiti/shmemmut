@@ -1,8 +1,7 @@
 # Makefile for the project.
 
 # whole project + few independent programs
-all: sem.o create post wait main shmemfile
-
+all: sem.o create post wait main shmemfile shmemptest
 
 
 sem.o: sem.c sem.h
@@ -26,13 +25,17 @@ main: main.c
 
 # shmemfile is not part of the project and it works independently 
 shmemfile: shmemfile.c
-	gcc -o $@ $^ -lpthread -lrt
+	gcc -o $@ $< -lpthread -lrt
+
+# shmemptest is not part of the project and it works independently 
+shmemptest: shmemptest.c shmempub.o shmempub.h
+	gcc -o $@ $< shmempub.o -lpthread -lrt
 
 # shmempub is not part of the project and it works independently 
-shmempub: shmempub.c
-	gcc -o $@ $^ -lpthread -lrt
+shmempub.o: shmempub.c shmempub.h
+	gcc -c -o $@ $< 
 
 
 .PHONY: clean
 clean:  
-	-rm main post create wait sem.o shmemfile shmempub
+	-rm main post create wait sem.o shmemfile shmempub.o shmemptest mmapfile

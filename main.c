@@ -33,14 +33,14 @@ int main()
     int pid = fork();
 
     if (pid == 0) {
-        printf("Child read: %s\n", shmem);
+        printf("Child read: %s\n", (char *)shmem);
         memcpy(shmem, child_message, sizeof(child_message));
-        printf("Child wrote: %s\n", shmem);
+        printf("Child wrote: %s\n", (char *)shmem);
 
     } else {
-        printf("Parent read: %s\n", shmem);
+        printf("Parent read: %s\n", (char *)shmem);
         sleep(1);
-        printf("After 1s, parent read: %s\n", shmem);
+        printf("After 1s, parent read: %s\n", (char *)shmem);
     }
 }
 

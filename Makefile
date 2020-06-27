@@ -1,6 +1,7 @@
+# Makefile for the project.
 
-
-all: sem.o create post main wait
+# whole project + main which is independend program
+all: sem.o create post wait main
 
 
 
@@ -19,7 +20,7 @@ create: create.c sem.o sem.h
 post: post.c sem.o sem.h
 	gcc -o $@ $^ -lpthread
 
-
+# main is not part of the project and it works independently 
 main: main.c
 	gcc -o $@ $^ -lpthread -lrt
 

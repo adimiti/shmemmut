@@ -1,6 +1,6 @@
 # Makefile for the project.
 
-# whole project + main which is independend program
+# whole project + main which is independent program
 all: sem.o create post wait main
 
 

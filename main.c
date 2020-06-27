@@ -1,3 +1,5 @@
+/* credits: https://stackoverflow.com/a/5656561/1085203 */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>

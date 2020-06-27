@@ -11,11 +11,11 @@
 int main(int argc, char *argv[])
 {
     char *addr;
-    addr = pvtmMmapAlloc ("mmapfile", 1024, atoi(argv[1]));
+    addr = pvtmMmapAlloc("/tmp/mmapfile", 1024, atoi(argv[1]));
 
     printf("%p - %s\n", addr, addr);
 
-    sprintf(addr, "test");
+    sprintf(addr, "test:0x%p\n", addr);
 
     return !addr;
 }

@@ -38,4 +38,4 @@ shmempub.o: shmempub.c shmempub.h
 
 .PHONY: clean
 clean:  
-	-rm main post create wait sem.o shmemfile shmempub.o shmemptest mmapfile
+	-rm main post create wait sem.o shmemfile shmempub.o shmemptest /tmp/mmapfile
